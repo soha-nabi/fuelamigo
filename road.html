@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadside Assistance-Fuel Amigo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: hsl(180, 90%, 64%);
+        }
+
+      .assistance-option {
+            margin: 20px;
+            margin-bottom: 100px;
+            margin-left: 20px;
+            padding: 20px 20px,0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            text-align: left;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        #other-problem {
+            margin-top: 10px;
+            margin-left: 7px;
+            margin-bottom: 5px;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #282828;
+            color: white;
+        }
+
+      .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: hsl(180, 90%, 64%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+      .submit-btn:hover {
+            background-color: hsl(180, 90%, 50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Roadside Assistance Request</h2>
+    
+    <div class="assistance-option">
+        <label>
+            <input type="checkbox" name="issue" value="mechanical">
+            Mechanical Issues
+            <a href="mech road.html"></a>
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="issue" value="electrical">
+            Electrical Failures
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="issue" value="tire">
+            Tire Problems
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="issue" value="cooling">
+            Cooling Failures
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="issue" value="others">
+            Others
+        </label>
+        <br>
+        <textarea id="other-problem" placeholder="Please specify your issue clearly here...." rows="4"></textarea>
+    </div>
+
+    <button onclick="window.location.href='delivery.html'">Buy Now</button>
+
+    <script>
+        function submitRequest() {
+            const selectedIssues = document.querySelectorAll('input[name="issue"]:checked');
+            const otherProblem = document.getElementById('other-problem').value;
+            let issuesArray = [];
+
+            selectedIssues.forEach(issue => {
+                issuesArray.push(issue.value);
+            });
+
+            if (issuesArray.length === 0 && otherProblem.trim() === "") {
+                alert("Please select at least one issue or specify your problem.");
+                return;
+            }
+
+            let message = "You have requested assistance for: " + issuesArray.join(', ');
+            if (otherProblem.trim() !== "") {
+                message += "\nOther issue: " + otherProblem;
+            }
+            alert(message);
+        }
+    </script>
+</body>
+</html>
