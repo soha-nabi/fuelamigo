@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Amigo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #000; /* Black */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+        }
+
+        .navbar a {
+            color: #fff; /* White */
+            text-align: center;
+            padding: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: cyan; /* Cyan on hover */
+        }
+
+        .navbar a.active {
+            color: cyan; /* Active link in cyan */
+        }
+
+        .navbar-left {
+            font-size: 20px;
+            color: cyan; /* Cyan for FuelAmigo.com */
+            font-weight: bold;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .button {
+            border: 1px solid white;
+            padding: 5px 10px;
+            margin-left: 10px;
+            color: white; /* White text */
+            background-color: transparent;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .navbar .button:hover {
+            background-color: cyan; /* Cyan background on hover */
+            color: black; /* Black text on hover */
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            object-fit: cover; /* Ensures the image covers the block without stretching */
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 20px;
+            background-color: #000; /* Black background */
+        }
+
+        .about-container > div {
+            width: 45%;
+            background-color: #111; /* Darker block background */
+            padding: 30px;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .about-container img {
+            width: 250px; /* Set width of the logo */
+            height: 250px; /* Set height of the logo */
+            object-fit: contain; /* Ensure the image retains its aspect ratio */
+            border-radius: 10px;
+        }
+
+        .about-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .order-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: cyan;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .order-button:hover {
+            background-color: #00bcd4; /* Slightly darker cyan on hover */
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 50px 20px;
+            background-color: #000; /* Black background */
+            color: white;
+        }
+
+        .feature-card {
+            background-color: #111; /* Darker card background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .feature-card img {
+            width: 100px; /* Size for icons */
+            height: 100px; /* Size for icons */
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            color: cyan; /* Cyan color for the feature title */
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-container > div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .about-container img {
+                margin-bottom: 20px;
+
+                font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: hsl(180, 90%, 64%);
+        }
+
+        /* Button styles */
+        .open-tracker-btn {
+            background-color: hsl(180, 90%, 64%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .open-tracker-btn:hover {
+            background-color: hsl(180, 90%, 50%);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 10% auto;
+            padding: 20px;
+            border: none;
+            width: 70%;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            background-color: cyan;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+            }
+        }
+
+    </style>
+    <div class="navbar">
+        <div class="navbar-left">
+            FuelAmigo.com
+        </div>
+        <div class="navbar-right">
+            <a href="#home" class="active">Home</a>
+            <a href="fuel-selection.html">Services</a> <!-- Updated link -->
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="sign-in.html" class="button">Sign In</a>
+            <a href="sign-up.html" class="button">Sign Up</a>
+        </div>
+    </div>
+
+    <div>
+        <img src="image1.png" alt="Fuel Amigo Image" class="hero-image">
+    </div>
+    <!-- Carbon Offset Tracker Button -->
+    <button class="open-tracker-btn" onclick="openModal()">Carbon Offset Tracker</button>
+
+    <!-- Modal Window -->
+    <div id="carbonModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="close-modal">Close</span>
+            <iframe src="carbon.html"></iframe> <!-- The tracker page -->
+        </div>
+    </div>
+
+    <script>
+        // Open the modal
+        function openModal() {
+            document.getElementById("carbonModal").style.display = "block";
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById("carbonModal").style.display = "none";
+        }
+
+        // Close the modal if user clicks outside of the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById("carbonModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+    <!-- About Us and Logo Section -->
+    <div class="about-container" id="about">
+        <div>
+            <h2 class="about-section"><span style="color: cyan;">About</span> <span style="color: cyan;">Us</span></h2>
+            <p>
+                At Fuel Amigo, we are dedicated to providing you with real-time, reliable fuel delivery and electric vehicle charging solutions. 
+                Our mission is to make fuel delivery and charging accessible, convenient, and stress-free, no matter where you are.
+                Join us on our journey to simplify energy access and keep you moving forward!
+            </p>
+            <a href="fuel-selection.html" class="order-button">Order Now</a>
+        </div>
+        <div>
+            <img src="image2.jpg" alt="Fuel Amigo Logo">
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-container" id="features">
+        <div class="feature-card">
+            <img src="image2.jpg" alt="24/7 Availability">
+            <h3>24/7 Availability</h3>
+            <p>Fuel delivery services whenever you need them, day or night.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/offline.png" alt="Offline Services">
+            <h3>Offline Services</h3>
+            <p>Stay connected with satellite communication even without a signal.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/fuel-delivery.png" alt="On-Demand Delivery">
+            <h3>On-Demand Fuel Delivery</h3>
+            <p>Request fuel delivery at your convenience, right to your location.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/partner.png" alt="Dedicated Partners">
+            <h3>Dedicated Partners</h3>
+            <p>Work with trusted partners to ensure top-notch service.</p>
+        </div>
+<br>
+        <div id="contact" class="contact-section">
+            <h1 align="center">Contact Us</h1>
+            <p align="center">At Fuel Amigo, we are dedicated to providing a seamless, real-time fuel delivery experience. Whether you have inquiries, suggestions, or need assistance, our team is here to help.</p>
+            <h4 align="center">Feel free to reach out through the following channels:</h4>
+            <p align="center">Email: <a href="mailto:fuelamigo@gmail.com" style="color: cyan;">fuelamigo@gmail.com</a></p>
+            <p align="center">Phone: <a href="tel:+919876543210" style="color: cyan;">+91-9876543210</a></p>
+            
+            <div class="social-links">
+                <h4 align="center">Stay connected with us on:</h4>
+                <p align="center">Instagram: <a href="https://instagram.com/your_instagram_account" target="_blank">Instagram</a></p>
+                <p align="center">GitHub: <a href="https://github.com/your_github_account" target="_blank">GitHub</a></p>
+            </div>
+    
+            <h4 align="center">We value your input and look forward to serving you!:</h4>
+            <a href="https://forms.gle/your_google_form_link" target="_blank" class="order-button">Fill Out Feedback Form</a>
+    
+</body>
+</html>
