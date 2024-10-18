@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine Maintenance Check</title>
+    <style>
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: hsl(180, 90%, 64%);
+        }
+
+        .option-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+            text-align: left;
+            width: 80%;
+            margin-left:px;
+            margin-right:px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            margin-top: 2px;
+            padding: 10px 20px;
+            background-color: hsl(180, 90%, 64%);
+            color: rgb(7, 5, 5);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: hsl(180, 90%, 50%);
+        }
+        .option-label {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #303030;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Routine Maintenance Check Options</h2>
+    
+    <div class="option-container">
+        <label class="option-label">
+            <input type="checkbox" name="maintenance-option" value="air-check">
+            Pollution check
+        </label>
+        <label class="option-label">
+            <input type="checkbox" name="maintenance-option" value="vehicle-check">
+            Mechanical issues
+        </label>
+        <label class="option-label">
+            <input type="checkbox" name="maintenance-option" value="car-services">
+            Car Services
+        </label>
+        <label class="option-label">
+            <input type="checkbox" name="maintenance-option" value="gas-check">
+            Gas Check
+        </label>
+        <label class="option-label">
+            <input type="checkbox" name="maintenance-option" value="fuel-filling">
+            Routine Fuel/Ev Charge Filling
+        </label>
+    </div>
+
+    <button onclick="window.location.href='delivery.html'">Buy Now</button>
+
+    <script>
+        function submitMaintenanceOptions() {
+            const selectedOptions = document.querySelectorAll('input[name="maintenance-option"]:checked');
+            let optionsArray = [];
+
+            selectedOptions.forEach(option => {
+                optionsArray.push(option.value);
+            });
+
+            if (optionsArray.length === 0) {
+                alert("Please select at least one maintenance check option.");
+                return;
+            }
+
+            let message = "You have selected the following options: " + optionsArray.join(', ');
+            alert(message);
+            // You can handle the redirection or further submission here
+        }
+    </script>
+
+</body>
+
+</html>
