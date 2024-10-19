@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyundai EV Models</title>
+    <style>
+        body {
+            background-color: #70dbbb;
+            color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 36px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color:hsl(180, 5%, 8%); 
+            text-align: center;
+        }
+
+        .model-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+            gap: 30px;
+        }
+
+        .model {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .model:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .model img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .model h3 {
+            margin-top: 15px;
+            color: hsl(180, 90%, 64%);
+            font-size: 22px;
+        }
+
+        .model p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #bbbbbb;
+        }
+
+        .model button {
+            padding: 10px 20px;
+            background-color:hsl(180, 90%, 64%);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .model button:hover {
+            background-color: hsl(180, 90%, 64%);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Select Your Hyundai EV Model</h2>
+
+    <div class="model-container">
+
+        <div class="model">
+            <img src="kona.jpg" alt="Hyundai Kona Electric">
+            <h3>Hyundai Kona Electric</h3>
+            <p>Range: 258 miles</p>
+            <button onclick="window.location.href='kona.html'">Order Now</button>
+        </div>
+        <div class="model">
+            <img src="ion5.jpg" alt="Hyundai Ioniq 5">
+            <h3>Hyundai Ioniq 5</h3>
+            <p>Range: 256 miles</p>
+            <button onclick="window.location.href='ion5.html'">Order Now</button>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2024 Fuel Amigo | All Rights Reserved
+    </footer>
+
+</body>
+</html>
