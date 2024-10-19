@@ -4,7 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EV charge-Fuel Amigo</title>
-    <link rel="stylesheet" href="styleev.css">
+   /* Car Brand Selection Section */
+.car-brand-selection {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .car-brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+    margin-top: 3px;
+  }
+  
+  .car-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .car-brand:hover {
+    transform: scale(1.1);
+    background-color: #111;
+  }
+  
+  .car-brand img {
+    width: 100px;
+    height: 80px;;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .car-brand p {
+    color:#4ad9e9;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: initial;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+body {
+    background-color: #70dbbb; /* Bright neon green */
+  }
+    h1, h2, p {
+    color: rgb(1, 0, 0);
+  }
+  
 </head>
 <body>
     <section id="car-brands" class="car-brand-selection">
